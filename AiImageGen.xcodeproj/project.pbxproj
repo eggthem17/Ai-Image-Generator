@@ -11,6 +11,9 @@
 		5B084D9B29545847005946A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B084D9A29545847005946A1 /* ContentView.swift */; };
 		5B084D9D2954584A005946A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B084D9C2954584A005946A1 /* Assets.xcassets */; };
 		5B084DA02954584A005946A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B084D9F2954584A005946A1 /* Preview Assets.xcassets */; };
+		5B084DA8295458C8005946A1 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5B084DA7295458C8005946A1 /* OpenAIKit */; };
+		5B084DAA2954A220005946A1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B084DA92954A220005946A1 /* Launch Screen.storyboard */; };
+		5B084DAD2954AE9A005946A1 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B084DAC2954AE9A005946A1 /* InfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		5B084D9A29545847005946A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5B084D9C2954584A005946A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B084D9F2954584A005946A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5B084DA92954A220005946A1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		5B084DAB2954A7F4005946A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5B084DAC2954AE9A005946A1 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B084DA8295458C8005946A1 /* OpenAIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,10 +58,13 @@
 		5B084D9729545847005946A1 /* AiImageGen */ = {
 			isa = PBXGroup;
 			children = (
+				5B084DAB2954A7F4005946A1 /* Info.plist */,
 				5B084D9829545847005946A1 /* AiImageGenApp.swift */,
 				5B084D9A29545847005946A1 /* ContentView.swift */,
+				5B084DAC2954AE9A005946A1 /* InfoView.swift */,
 				5B084D9C2954584A005946A1 /* Assets.xcassets */,
 				5B084D9E2954584A005946A1 /* Preview Content */,
+				5B084DA92954A220005946A1 /* Launch Screen.storyboard */,
 			);
 			path = AiImageGen;
 			sourceTree = "<group>";
@@ -83,6 +93,9 @@
 			dependencies = (
 			);
 			name = AiImageGen;
+			packageProductDependencies = (
+				5B084DA7295458C8005946A1 /* OpenAIKit */,
+			);
 			productName = AiImageGen;
 			productReference = 5B084D9529545847005946A1 /* AiImageGen.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +124,9 @@
 				Base,
 			);
 			mainGroup = 5B084D8C29545847005946A1;
+			packageReferences = (
+				5B084DA6295458C8005946A1 /* XCRemoteSwiftPackageReference "OpenAIKit" */,
+			);
 			productRefGroup = 5B084D9629545847005946A1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B084DAA2954A220005946A1 /* Launch Screen.storyboard in Resources */,
 				5B084DA02954584A005946A1 /* Preview Assets.xcassets in Resources */,
 				5B084D9D2954584A005946A1 /* Assets.xcassets in Resources */,
 			);
@@ -138,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B084D9B29545847005946A1 /* ContentView.swift in Sources */,
+				5B084DAD2954AE9A005946A1 /* InfoView.swift in Sources */,
 				5B084D9929545847005946A1 /* AiImageGenApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +213,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -249,6 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -270,11 +290,16 @@
 				DEVELOPMENT_TEAM = 3P68S4MN54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AiImageGen/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,11 +324,16 @@
 				DEVELOPMENT_TEAM = 3P68S4MN54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AiImageGen/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +369,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5B084DA6295458C8005946A1 /* XCRemoteSwiftPackageReference "OpenAIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marcodotio/OpenAIKit.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5B084DA7295458C8005946A1 /* OpenAIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B084DA6295458C8005946A1 /* XCRemoteSwiftPackageReference "OpenAIKit" */;
+			productName = OpenAIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B084D8D29545847005946A1 /* Project object */;
 }
