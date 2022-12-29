@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "openaikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marcodotio/OpenAIKit.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b8d033a2c13bd91037f10b16cffdd3873344ff18"
+      }
+    }
+  ],
+  "version" : 2
+}
