@@ -49,9 +49,10 @@ struct InfoView: View {
 				Image("openai_logo")
 					.resizable()
 					.frame(width: 60, height: 60)
+					.cornerRadius(15)
 					.overlay(content: {
 						RoundedRectangle(cornerRadius: 15)
-							.stroke(.white, lineWidth: 3)
+							.stroke(.primary, lineWidth: 3)
 					})
 			}
 			.frame(width: 240)
