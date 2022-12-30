@@ -14,6 +14,7 @@
 		5B084DA8295458C8005946A1 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5B084DA7295458C8005946A1 /* OpenAIKit */; };
 		5B084DAA2954A220005946A1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B084DA92954A220005946A1 /* Launch Screen.storyboard */; };
 		5B084DAD2954AE9A005946A1 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B084DAC2954AE9A005946A1 /* InfoView.swift */; };
+		5BA91CD5295DDE32004F5CEF /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 5BA91CD4295DDE32004F5CEF /* SwiftUIVisualEffects */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B084DA8295458C8005946A1 /* OpenAIKit in Frameworks */,
+				5BA91CD5295DDE32004F5CEF /* SwiftUIVisualEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +97,7 @@
 			name = AiImageGen;
 			packageProductDependencies = (
 				5B084DA7295458C8005946A1 /* OpenAIKit */,
+				5BA91CD4295DDE32004F5CEF /* SwiftUIVisualEffects */,
 			);
 			productName = AiImageGen;
 			productReference = 5B084D9529545847005946A1 /* AiImageGen.app */;
@@ -126,6 +129,7 @@
 			mainGroup = 5B084D8C29545847005946A1;
 			packageReferences = (
 				5B084DA6295458C8005946A1 /* XCRemoteSwiftPackageReference "OpenAIKit" */,
+				5BA91CD3295DDE32004F5CEF /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */,
 			);
 			productRefGroup = 5B084D9629545847005946A1 /* Products */;
 			projectDirPath = "";
@@ -379,6 +383,14 @@
 				kind = branch;
 			};
 		};
+		5BA91CD3295DDE32004F5CEF /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucasbrown/swiftui-visual-effects.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -386,6 +398,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B084DA6295458C8005946A1 /* XCRemoteSwiftPackageReference "OpenAIKit" */;
 			productName = OpenAIKit;
+		};
+		5BA91CD4295DDE32004F5CEF /* SwiftUIVisualEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BA91CD3295DDE32004F5CEF /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */;
+			productName = SwiftUIVisualEffects;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

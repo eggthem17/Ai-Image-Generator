@@ -7,12 +7,13 @@
 
 import OpenAIKit
 import SwiftUI
+import SwiftUIVisualEffects
 
 final class ViewModel: ObservableObject {
 	private var openai: OpenAI?
 	
 	func setup() {
-		openai = OpenAI(Configuration(organization: "organization", apiKey: "apiKey"))
+		openai = OpenAI(Configuration(organization: "[organization]", apiKey: "[apiKey]"))
 	}
 	
 	func generateImage(prompt: String) async -> UIImage? {
@@ -51,6 +52,11 @@ struct ContentView: View {
 						.resizable()
 						.aspectRatio(contentMode: .fit)
 						.frame(width: 300, height: 300)
+						.cornerRadius(10)
+						.overlay {
+							RoundedRectangle(cornerRadius: 10)
+								.stroke(.primary, lineWidth: 2)
+						}
 				} else {
 					Text("Type prompt to generatre image!")
 				}
@@ -59,6 +65,10 @@ struct ContentView: View {
 				
 				TextField("Type prompt here...", text: $text)
 					.padding()
+					.overlay {
+						RoundedRectangle(cornerRadius: 15)
+							.stroke(.primary, lineWidth: 2)
+					}
 				
 				Button("Generate!") {
 					if !text.trimmingCharacters(in: .whitespaces).isEmpty {
@@ -89,18 +99,15 @@ struct ContentView: View {
 					} label: {
 						Image(systemName: "info.circle")
 					}
-
-
 				}
+				
 				ToolbarItem(placement: .navigationBarTrailing) {
 					Button {
-						if let image = image {
-							alertState.toggle()
-						}
+						alertState.toggle()
 					} label: {
 						Image(systemName: "square.and.arrow.up")
 					}
-					.disabled(fetchingState)
+					.disabled(image == nil)
 				}
 			}
 			.alert("Alert", isPresented: $alertState) {
@@ -122,14 +129,17 @@ struct ContentView: View {
 		.overlay(content: {
 			if fetchingState {
 				ZStack(alignment: .center) {
+					Color(.black)
+						.opacity(0.3)
+						.ignoresSafeArea()
+					
 					Rectangle()
-						.background(.black)
-						.opacity(0.8)
+						.blurEffect()
 						.frame(width: 100, height: 100)
 						.cornerRadius(15)
 					
 					ProgressView()
-						.tint(.black)
+						.vibrancyEffect()
 				}
 			}
 		})

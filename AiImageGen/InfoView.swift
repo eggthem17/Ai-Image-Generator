@@ -34,7 +34,7 @@ struct InfoView: View {
 			
 			Divider()
 				.frame(minHeight: 2)
-				.background(.white)
+				.background(.primary)
 			
 			HStack {
 				VStack(alignment: .leading) {
