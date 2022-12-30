@@ -11,7 +11,11 @@ import SwiftUI
 struct AiImageGenApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			if #available(iOS 15.0, *) {
+				ContentView_Current()
+			} else {
+				ContentView_Deprecated()
+			}
         }
     }
 }

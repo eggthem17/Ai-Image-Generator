@@ -1,22 +1,23 @@
 //
-//  ContentView.swift
+//  ContentView_Deprecated.swift
 //  AiImageGen
 //
-//  Created by Martin.Q on 2022/12/22.
+//  Created by Martin.Q on 2022/12/30.
 //
 
 import OpenAIKit
 import SwiftUI
 import SwiftUIVisualEffects
 
-struct ContentView: View {
+struct ContentView_Deprecated: View {
 	@ObservedObject var viewModel = ContetnViewModel()
+	
 	@State var text = ""
 	@State var image: UIImage?
 	@State var alertState = false
 	@State var fetchingState = false
 	
-    var body: some View {
+	var body: some View {
 		NavigationView {
 			VStack {
 				Spacer()
@@ -50,9 +51,11 @@ struct ContentView: View {
 							fetchingState.toggle()
 							
 							let result = await viewModel.generateImage(prompt: text)
+							
 							if result == nil {
 								print("Failed to get image")
 							}
+							
 							self.image = result
 							
 							fetchingState.toggle()
@@ -117,11 +120,11 @@ struct ContentView: View {
 				}
 			}
 		})
-    }
+	}
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ContentView_Deprecated_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView_Deprecated()
     }
 }
