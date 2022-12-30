@@ -28,10 +28,10 @@ struct ContentView_Deprecated: View {
 						.aspectRatio(contentMode: .fit)
 						.frame(width: 300, height: 300)
 						.cornerRadius(10)
-						.overlay {
+						.overlay (
 							RoundedRectangle(cornerRadius: 10)
-								.stroke(.primary, lineWidth: 2)
-						}
+								.stroke(Color.primary, lineWidth: 2)
+						)
 				} else {
 					Text("Type prompt to generatre image!")
 				}
@@ -40,10 +40,10 @@ struct ContentView_Deprecated: View {
 				
 				TextField("Type prompt here...", text: $text)
 					.padding()
-					.overlay {
+					.overlay(
 						RoundedRectangle(cornerRadius: 15)
-							.stroke(.primary, lineWidth: 2)
-					}
+							.stroke(Color.primary, lineWidth: 2)
+					)
 				
 				Button("Generate!") {
 					if !text.trimmingCharacters(in: .whitespaces).isEmpty {
@@ -72,12 +72,12 @@ struct ContentView_Deprecated: View {
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
 					NavigationLink {
-						InfoView()
+						InfoView_Deprecated()
 					} label: {
 						Image(systemName: "info.circle")
 					}
 				}
-				
+
 				ToolbarItem(placement: .navigationBarTrailing) {
 					Button {
 						alertState.toggle()
@@ -87,39 +87,17 @@ struct ContentView_Deprecated: View {
 					.disabled(image == nil)
 				}
 			}
-			.alert("Alert", isPresented: $alertState) {
-				Button {
-					UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-				} label: {
-					Text("Save")
-				}
-				
-				Button(role: .cancel) {
-					
-				} label: {
-					Text("Cancel")
-				}
-			} message: {
-				Text("Save this photo to your album.")
+			.alert(isPresented: $alertState) {
+				Alert(title: Text("Alert"),
+					  message: Text("Save this photo to your album."),
+					  primaryButton: .default(Text("Save"),
+											  action: { UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil) }
+											 ),
+					  secondaryButton: .cancel(Text("Cancel"))
+				)
 			}
 		}
-		.overlay(content: {
-			if fetchingState {
-				ZStack(alignment: .center) {
-					Color(.black)
-						.opacity(0.3)
-						.ignoresSafeArea()
-					
-					Rectangle()
-						.blurEffect()
-						.frame(width: 100, height: 100)
-						.cornerRadius(15)
-					
-					ProgressView()
-						.vibrancyEffect()
-				}
-			}
-		})
+		.overlay( fetchingState ? bgProgressView : nil)
 	}
 }
 
@@ -127,4 +105,43 @@ struct ContentView_Deprecated_Previews: PreviewProvider {
     static var previews: some View {
         ContentView_Deprecated()
     }
+}
+
+extension ContentView_Deprecated {
+	struct ActivityIndicator: UIViewRepresentable {
+
+		@Binding var isAnimating: Bool
+		let style: UIActivityIndicatorView.Style
+
+		func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
+			return UIActivityIndicatorView(style: style)
+		}
+
+		func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
+			isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+		}
+	}
+}
+
+extension ContentView_Deprecated {
+	var bgProgressView: some View {
+		ZStack(alignment: .center) {
+			Color(.black)
+				   .opacity(0.3)
+				   .ignoresSafeArea()
+			   
+		   Rectangle()
+			   .blurEffect()
+			   .frame(width: 100, height: 100)
+			   .cornerRadius(15)
+		   
+			if #available(iOS 14.0, *) {
+				ProgressView()
+					.vibrancyEffect()
+			} else {
+				ActivityIndicator(isAnimating: .constant(true), style: .medium)
+					.vibrancyEffect()
+			}
+	   }
+	}
 }

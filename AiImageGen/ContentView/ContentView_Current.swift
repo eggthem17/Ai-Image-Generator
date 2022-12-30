@@ -9,6 +9,7 @@ import OpenAIKit
 import SwiftUI
 import SwiftUIVisualEffects
 
+@available(iOS 15.0, *)
 struct ContentView_Current: View {
 	@ObservedObject var viewModel = ContetnViewModel()
 	
@@ -72,7 +73,7 @@ struct ContentView_Current: View {
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
 					NavigationLink {
-						InfoView()
+						InfoView_Current()
 					} label: {
 						Image(systemName: "info.circle")
 					}
@@ -123,6 +124,7 @@ struct ContentView_Current: View {
 	}
 }
 
+@available(iOS 15.0, *)
 struct ContentView_Current_Previews: PreviewProvider {
     static var previews: some View {
         ContentView_Current()

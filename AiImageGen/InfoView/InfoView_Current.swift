@@ -1,17 +1,18 @@
 //
-//  InfoView.swift
+//  InfoView_Current.swift
 //  AiImageGen
 //
-//  Created by Martin.Q on 2022/12/23.
+//  Created by Martin.Q on 2022/12/30.
 //
 
 import SwiftUI
 
-struct InfoView: View {
+@available(iOS 15.0, *)
+struct InfoView_Current: View {
 	let blogAddr = URL(string: "https://chillog.page")
 	let openAiAddr = URL(string: "https://openai.com")
 	
-    var body: some View {
+	var body: some View {
 		VStack {
 			HStack {
 				VStack(alignment: .leading) {
@@ -60,11 +61,12 @@ struct InfoView: View {
 		}
 		.frame(width: 240)
 		.navigationBarTitleDisplayMode(.inline)
-    }
+	}
 }
 
-struct InfoView_Previews: PreviewProvider {
+@available(iOS 15.0, *)
+struct InfoView_Current_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView()
+        InfoView_Current()
     }
 }
